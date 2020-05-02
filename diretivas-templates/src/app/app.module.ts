@@ -1,6 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
+import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { DiretivaNgifComponent } from './diretiva-ngif/diretiva-ngif.component';
 
@@ -10,7 +11,8 @@ import { DiretivaNgifComponent } from './diretiva-ngif/diretiva-ngif.component';
     DiretivaNgifComponent
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    AppRoutingModule
   ],
   providers: [],
   bootstrap: [AppComponent]

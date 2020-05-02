@@ -5,7 +5,11 @@
   "projects": {
     "diretivas-templates": {
       "projectType": "application",
-      "schematics": {},
+      "schematics": {
+        "@schematics/angular:component": {
+          "style": "scss"
+        }
+      },
       "root": "",
       "sourceRoot": "src",
       "prefix": "app",
@@ -24,7 +28,7 @@
               "src/assets"
             ],
             "styles": [
-              "src/styles.css"
+              "src/styles.scss"
             ],
             "scripts": []
           },
@@ -88,7 +92,7 @@
               "src/assets"
             ],
             "styles": [
-              "src/styles.css"
+              "src/styles.scss"
             ],
             "scripts": []
           }
@@ -123,6 +127,6 @@
   },
   "defaultProject": "diretivas-templates",
   "cli": {
-    "analytics": "d7be2e25-a27a-4f93-8ed6-6f9f8ce9bb50"
+    "analytics": "4e14466e-12c7-445e-8d69-77a49299b29f"
   }
 }
