@@ -11,7 +11,7 @@ import { CursosComponent } from './cursos.component';
   imports: [
     CommonModule
   ],
-  providers: [CursosService],
+  //providers: [CursosService], //Quando adicionamos um provider em um module a gente cria um singleton do provider.
   exports: [CursosComponent]
 })
 export class CursosModule { }
