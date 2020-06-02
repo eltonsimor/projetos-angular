@@ -11,7 +11,7 @@ export class CursosService {
   private cursos = ['Angular2', 'Java', 'PhoneGap'];
 
   constructor(private logService: LogService){
-    console.log('CursosService')
+    this.logService.consoleLog('CursosService')
   }
 
   getCursos() {
