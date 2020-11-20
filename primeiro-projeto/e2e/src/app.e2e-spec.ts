@@ -1,23 +1,32 @@
-import { AppPage } from './app.po';
-import { browser, logging } from 'protractor';
+const request = require('request');
+const should = require('should');
+
+import { SimpleWiremock } from 'simple-wiremock';
 
 describe('workspace-project App', () => {
-  let page: AppPage;
+  let simpleWiremock: SimpleWiremock;
 
   beforeEach(() => {
-    page = new AppPage();
+    simpleWiremock = new SimpleWiremock().start();
+
+    simpleWiremock.get("/users", {
+      status: 200,
+      headers: {},
+      jsonBody: {}
+    });
+
   });
 
-  it('should display welcome message', () => {
-    page.navigateTo();
-    expect(page.getTitleText()).toEqual('angular2 app is running!');
+  it('should display welcome message', (done) => {
+    request('http://localhost:5001/users', (err, res, body) =>{
+                should.not.exist(err);
+                should.exist(res);
+                should(res.statusCode).be.equal(200);
+                done();
+            });
   });
 
   afterEach(async () => {
-    // Assert that there are no errors emitted from the browser
-    const logs = await browser.manage().logs().get(logging.Type.BROWSER);
-    expect(logs).not.toContain(jasmine.objectContaining({
-      level: logging.Level.SEVERE,
-    } as logging.Entry));
+    simpleWiremock.stop();
   });
 });
